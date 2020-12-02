@@ -28,11 +28,17 @@ export default class Conta {
 
   sacar(valor) {
     let taxa = 1.5;
+    return this._sacar(valor, taxa);
+  }
+
+  _sacar(valor, taxa) {
     const valorSacado = valor * taxa;
     if (this._saldo >= valor) {
       this._saldo -= valor;
       return valorSacado;
     }
+
+    return 0;
   }
 
   depositar(valor) {

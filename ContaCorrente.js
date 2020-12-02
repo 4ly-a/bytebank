@@ -1,6 +1,4 @@
 import Conta from "./Conta.js";
-import cliente from "./Cliente.js";
-
 
 export default class ContaCorrente extends Conta {
   static numeroContas = 0; // -> static vale para todas as contas
@@ -12,10 +10,7 @@ export default class ContaCorrente extends Conta {
 
   sacar(valor) {
     let taxa = 1.1;
-    const valorSacado = taxa * valor;
-    if (this._saldo >= valor) {
-      this._saldo -= valor;
-      return valorSacado;
+    return super._sacar(valor,taxa);
     }
   }
 }
