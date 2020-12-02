@@ -5,8 +5,11 @@ import Gerente from "./Funcionario/Gerente.js";
 import Diretor from "./Funcionario/Diretor.js";
 import SistemaAutenticacao from "./SisAutenticacao.js";
 
-//Diretor e gerente
+//Diretor
 const diretor = new Diretor("Rodrigo", 10000, 12354687910);
+diretor.cadastrarSenha("12345");
+
+//gerente
 const gerente = new Gerente("Arnaldo", 5000, 50012345678);
 
 //Cliente
@@ -15,11 +18,7 @@ const contaR = new ContaCorrente(0, clienteR, 1001);
 const poupancaR = new ContaPoupanca(0, clienteR, 1001);
 
 //sistema
-SistemaAutenticacao.login(diretor, "12354687910");
-
-//operações
-contaR.depositar(500);
-contaR.sacar(100);
+const estaLogado = SistemaAutenticacao.login(diretor, "12345");
 
 //log
-console.log(SistemaAutenticacao);
+console.log(estaLogado);
