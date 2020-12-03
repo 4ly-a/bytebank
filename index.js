@@ -7,18 +7,21 @@ import SistemaAutenticacao from "./SisAutenticacao.js";
 
 //Diretor
 const diretor = new Diretor("Rodrigo", 10000, 12354687910);
-diretor.cadastrarSenha("12345");
 
 //gerente
 const gerente = new Gerente("Arnaldo", 5000, 50012345678);
 
 //Cliente
-const clienteR = new Cliente("Ricardo", 51478195843);
-const contaR = new ContaCorrente(0, clienteR, 1001);
-const poupancaR = new ContaPoupanca(0, clienteR, 1001);
+const clienteR = new Cliente("Ricardo", 51478195843, "333");
 
 //sistema
-const estaLogado = SistemaAutenticacao.login(diretor, "12345");
+
+diretor.cadastrarSenha("111");
+gerente.cadastrarSenha("222");
+
+const diretorEstaLogado = SistemaAutenticacao.login(diretor, "111");
+const gerenteEstaLogado = SistemaAutenticacao.login(gerente, "222");
+const clienteEstaLogado = SistemaAutenticacao.login(clienteR, "333");
 
 //log
-console.log(estaLogado);
+console.log(diretorEstaLogado, gerenteEstaLogado, clienteEstaLogado);
